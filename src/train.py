@@ -36,6 +36,7 @@ device = torch.device("cuda:0" if args['cuda'] else "cpu")
 # train dataloader
 train_dataset = get_dataset(
     args['train_dataset']['name'], args['train_dataset']['kwargs'])
+    
 train_dataset_it = torch.utils.data.DataLoader(
     train_dataset, batch_size=args['train_dataset']['batch_size'], shuffle=True, drop_last=True, num_workers=args['train_dataset']['workers'], pin_memory=True if args['cuda'] else False)
 
